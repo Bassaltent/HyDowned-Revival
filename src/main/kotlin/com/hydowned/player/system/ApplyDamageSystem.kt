@@ -5,7 +5,7 @@ import com.hypixel.hytale.component.dependency.Dependency
 import com.hypixel.hytale.component.dependency.Order
 import com.hypixel.hytale.component.dependency.SystemDependency
 import com.hypixel.hytale.protocol.GameMode
-import com.hypixel.hytale.server.core.entity.EntityUtils
+import com.hydowned.util.HolderUtil
 import com.hypixel.hytale.server.core.entity.entities.Player
 import com.hypixel.hytale.server.core.modules.entity.damage.Damage
 import com.hypixel.hytale.server.core.modules.entity.damage.DamageCause
@@ -63,7 +63,7 @@ class ApplyDamageSystem(val managers: Managers) : DamageSystems.ApplyDamage() {
         }
 
         // Get damaged player
-        val holder = EntityUtils.toHolder(index, archetypeChunk)
+        val holder = HolderUtil.toHolder(index, archetypeChunk)
         val player = holder.getComponent(Player.getComponentType())
         val playerRef = holder.getComponent(PlayerRef.getComponentType())
 
@@ -156,7 +156,7 @@ class ApplyDamageSystem(val managers: Managers) : DamageSystems.ApplyDamage() {
                 if (newValue <= healthValue.min) {
                     // Damage would be lethal - put player in downed state instead
                     Log.info("DamageInterceptorSystem",
-                        "${player.displayName} would die from ${damage.amount} damage - downing instead")
+                        "${playerRef?.username} would die from ${damage.amount} damage - downing instead")
 
                     managers.downManager.down(downable, aggressor)
                     entityStatMap.setStatValue(healthStat, 1.0f)

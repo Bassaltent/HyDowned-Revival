@@ -18,12 +18,12 @@ class PlayerManager(private val config: ModConfig) {
     fun add(player: Player, playerRef: PlayerRef) {
         val modPlayer = ModPlayer(player, playerRef)
         players[playerRef] = modPlayer
-        Log.finer("PlayerManager", "Player joined: ${player.displayName}")
+        Log.finer("PlayerManager", "Player joined: ${playerRef.username}")
     }
 
     fun remove(modPlayer: ModPlayer) {
         players.remove(modPlayer.playerRef)
-        Log.finer("PlayerManager", "Player left: ${modPlayer.player.displayName}")
+        Log.finer("PlayerManager", "Player left: ${modPlayer.playerRef.username}")
     }
 
     fun get(player: Player): ModPlayer? {

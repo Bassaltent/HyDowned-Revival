@@ -1,3 +1,9 @@
+# Diclaimer
+
+This mod wasn't created by me but by Bonfyre_ I propose this update since the original mod makes the game crash and the original autor isn't around anymore. I'll try to update it in the time the best I can and maybe add features if I have any ideas
+
+Link to the original mod: https://www.curseforge.com/hytale/mods/hydowned
+
 # HyDowned - Downed State System
 
 Replaces instant death with a downed state where your teammates can revive you. When you take fatal damage, you're downed instead of dying - giving your team a chance to bring you back.
@@ -237,7 +243,8 @@ See `en-US/hydowned.lang` for all available translation keys.
 
 ## Source Code
 
-Available on GitHub: [https://github.com/BenDol/HyDowned](https://github.com/BenDol/HyDowned)
+Original mod available on GitHub: [https://github.com/BenDol/HyDowned](https://github.com/BenDol/HyDowned)
+This mod: [https://github.com/Bassaltent/HyDowned-Revival](https://github.com/Bassaltent/HyDowned-Revival)
 
 ## Support
 
@@ -245,6 +252,7 @@ Report bugs on the [GitHub issues](https://github.com/BenDol/HyDowned/issues) pa
 
 ## Credits
 
+* Bonfyre_ for the original mod
 * Alex for the logo (I made him work for free)
 * Community feedback and testing
 

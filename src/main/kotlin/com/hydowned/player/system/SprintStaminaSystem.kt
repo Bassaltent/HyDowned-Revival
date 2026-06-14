@@ -4,7 +4,7 @@ import com.hypixel.hytale.component.ArchetypeChunk
 import com.hypixel.hytale.component.CommandBuffer
 import com.hypixel.hytale.component.ComponentType
 import com.hypixel.hytale.component.Store
-import com.hypixel.hytale.server.core.entity.EntityUtils
+import com.hydowned.util.HolderUtil
 import com.hypixel.hytale.server.core.entity.entities.Player
 import com.hypixel.hytale.server.core.entity.movement.MovementStatesComponent
 import com.hypixel.hytale.server.core.modules.entity.stamina.StaminaSystems
@@ -29,7 +29,7 @@ class SprintStaminaSystem(private val managers: Managers) : StaminaSystems.Sprin
         store: Store<EntityStore>,
         commandBuffer: CommandBuffer<EntityStore>
     ) {
-        val holder = EntityUtils.toHolder(index, archetypeChunk)
+        val holder = HolderUtil.toHolder(index, archetypeChunk)
         val player = holder.getComponent(Player.getComponentType()) ?: return
 
         val revivePlayer = managers.playerManager.get(player) ?: return

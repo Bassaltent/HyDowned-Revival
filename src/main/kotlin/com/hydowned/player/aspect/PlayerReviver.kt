@@ -19,7 +19,7 @@ class PlayerReviver(
 ) : PlayerAspect(player, playerRef), Reviver {
 
     override fun getDisplayName(): String {
-        return player.displayName ?: "Unknown"
+        return playerRef.username ?: "Unknown"
     }
 
     override fun canRevive(target: Downable): Boolean {

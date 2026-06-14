@@ -17,7 +17,7 @@ import kotlin.math.roundToInt
  *
  * Updates dynamically as state changes via the updateHud() method.
  */
-class DownedHud(playerRef: PlayerRef) : CustomUIHud(playerRef) {
+class DownedHud(playerRef: PlayerRef) : CustomUIHud(playerRef, "hydowned_downed") {
 
     private var ui: UIBuilder? = null
     private var visible: Boolean = true

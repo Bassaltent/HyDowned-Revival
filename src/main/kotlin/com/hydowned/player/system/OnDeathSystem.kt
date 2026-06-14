@@ -38,7 +38,7 @@ class OnDeathSystem(val managers: Managers) : DeathSystems.OnDeathSystem() {
         // If player was downed when they died, clean up the downed state
         if (downable.isDowned()) {
             Log.finer("OnDeathSystem",
-                "${player.displayName} died while downed - cleaning up downed state")
+                "${player.playerRef.username} died while downed - cleaning up downed state")
             managers.downManager.onDeath(downable)
         }
     }

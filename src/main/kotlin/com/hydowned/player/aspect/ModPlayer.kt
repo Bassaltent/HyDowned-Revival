@@ -22,6 +22,6 @@ class ModPlayer(
     var isShowingHelpMessage: Boolean = false
 
     override fun toString(): String {
-        return "ModPlayer(${player.displayName})"
+        return "ModPlayer(${playerRef.username})"
     }
 }

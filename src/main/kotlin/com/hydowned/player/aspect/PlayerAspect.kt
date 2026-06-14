@@ -12,7 +12,7 @@ open class PlayerAspect(
     val player: Player,
     val playerRef: PlayerRef
 ) : Aspect {
-    override fun getDisplayName(): String = player.displayName ?: "Unknown Player"
+    override fun getDisplayName(): String = playerRef.username ?: "Unknown Player"
 
     fun getDistance(target: PlayerAspect): Double {
         return playerRef.getDistance(target.playerRef)

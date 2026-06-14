@@ -53,7 +53,7 @@ class PlayerDownable(
     private var speedBase: Float = 5.5f
 
     override fun getDisplayName(): String {
-        return player.displayName ?: "Unknown"
+        return playerRef.username ?: "Unknown"
     }
 
     override fun isDowned(): Boolean {

@@ -17,8 +17,12 @@ class HudManager(private val config: ModConfig) {
 
     private val huds: MutableMap<ModPlayer, DownedHud> = mutableMapOf()
 
-    private fun setCustomHud(player: Player, playerRef: PlayerRef, customUIHud: DownedHud) {
-        player.hudManager.setCustomHud(playerRef, customUIHud)
+    private fun addCustomHud(player: Player, playerRef: PlayerRef, customUIHud: DownedHud) {
+        player.hudManager.addCustomHud(playerRef, customUIHud)
+    }
+
+    private fun removeCustomHud(player: Player, playerRef: PlayerRef) {
+        player.hudManager.removeCustomHud(playerRef, "hydowned_downed")
     }
 
     /**
@@ -37,7 +41,7 @@ class HudManager(private val config: ModConfig) {
             val value = DownedHud(player.playerRef)
             huds[player] = value
             value.updateHud(downed, player)
-            setCustomHud(player.player, player.playerRef, value)
+            addCustomHud(player.player, player.playerRef, value)
             value.setVisible(visible)
         } else {
             val customUIHud = huds[player]!!
@@ -55,7 +59,7 @@ class HudManager(private val config: ModConfig) {
      */
     fun hideHud(player: ModPlayer) {
         huds.remove(player)
-        player.player.hudManager.setCustomHud(player.playerRef, null)
+        removeCustomHud(player.player, player.playerRef)
     }
 
     /**
@@ -65,7 +69,7 @@ class HudManager(private val config: ModConfig) {
     fun clearAll() {
         Log.fine("HudManager", "Clearing all HUDs (${huds.size} instances)")
         for ((player, hud) in huds) {
-            player.player.hudManager.setCustomHud(player.playerRef, null)
+            removeCustomHud(player.player, player.playerRef)
         }
         huds.clear()
     }

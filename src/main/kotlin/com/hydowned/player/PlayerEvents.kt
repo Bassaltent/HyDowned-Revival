@@ -50,7 +50,7 @@ class PlayerEvents(val plugin: ModPlugin) {
                     managers.downManager.setTime(downable, downedComponent.time)
 
                     Log.info("PlayerEvents",
-                        "${event.player.displayName} reconnected while downed (${downedComponent.time} ticks remaining)")
+                        "${event.player.playerRef.username} reconnected while downed (${downedComponent.time} ticks remaining)")
                 }
             }, 250, TimeUnit.MILLISECONDS)
         }

@@ -5,7 +5,7 @@ import com.hypixel.hytale.component.CommandBuffer
 import com.hypixel.hytale.component.Store
 import com.hypixel.hytale.component.query.Query
 import com.hypixel.hytale.component.system.tick.EntityTickingSystem
-import com.hypixel.hytale.server.core.entity.EntityUtils
+import com.hydowned.util.HolderUtil
 import com.hypixel.hytale.server.core.entity.entities.Player
 import com.hypixel.hytale.server.core.universe.PlayerRef
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore
@@ -39,7 +39,7 @@ class PlayerTickSystem(val managers: Managers) : EntityTickingSystem<EntityStore
         store: Store<EntityStore>,
         commandBuffer: CommandBuffer<EntityStore>
     ) {
-        val holder = EntityUtils.toHolder(index, archetypeChunk)
+        val holder = HolderUtil.toHolder(index, archetypeChunk)
         val player = holder.getComponent(Player.getComponentType())
         val playerRef = holder.getComponent(PlayerRef.getComponentType())
 
@@ -118,7 +118,7 @@ class PlayerTickSystem(val managers: Managers) : EntityTickingSystem<EntityStore
 
                 if (distance > reviveDistance) {
                     managers.reviveManager.cancel(reviver)
-                    Log.finer("PlayerTickSystem", "${player.displayName} moved too far, revive canceled")
+                    Log.finer("PlayerTickSystem", "${playerRef.username} moved too far, revive canceled")
                 }
             }
 
